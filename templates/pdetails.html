@@ -1,0 +1,78 @@
+<html>
+  <style>
+    body{ 
+      font-size: 15pt;
+      font-family: arial;
+    }
+  </style>
+
+<body>
+
+  <h1>Product Details</h1>
+  {% if email == None %}
+  <p align="right"><a href="login"><b>Log In</b></a></p>
+  <p align="right"><a href="signup"><b>Sign Up</b></a></p>
+  {% endif %}
+
+  {% if email != None %}
+  <p align="right"><b>Hello,{{cname}}</b></p>
+  <p align="right"><a href="checkout">Check Out</a></p>
+  <p align="right"><a href="orderhistory">Order History</a></p>
+  <p align="right"><a href="logout">Log Out</a></p>
+  {% endif %}
+  
+  <div>
+    {% for n in data %}
+    <div><b>【Product Name】 {{n.pname}}</b></div><br><br>
+    <img src="{{n.url}}" width="256" height="256"><br>
+    <div><b>【Product Price】</b> {{n.price}}</div><br>
+    <div><b>【Product Details】</b> {{n.details}}</div><br>
+    {% endfor %}
+
+    <p> <b>Customer reviews </b></p>
+    {% for n in data2 %}
+    <b>{{n.cust}}</b>
+    <div>【Product Reviews】 {{n.cont}}</div>
+    <div>【Product Rating】{{n.rating}}</b></div>
+    <p> ---------------- </p>
+    {% endfor %}
+  </div>
+
+<!-- 
+<form method="POST" action="/add">
+<p>Name of new computer scientist: <input type="text" name="name"> <input type="submit" value="Add"></p>
+
+</form>
+ -->
+
+<form method= "POST" action = "/addbasket?pid={{prodid}}">
+<p><b>Qty:</b></p>
+<select name = "qty">
+  <option value=1>1</option>
+  <option value=2>2</option>
+  <option value=3>3</option>
+  <option value=4>4</option>
+  <option value=5>5</option>
+  <option value=6>6</option>
+  <option value=7>7</option>
+  <option value=8>8</option>
+  <option value=9>9</option>
+  <option value=10>10</option>
+  <option value=11>11</option>
+  <option value=12>12</option>
+  <option value=13>13</option>
+  <option value=14>14</option>
+  <option value=15>15</option>
+</select>
+ <button name = "foo" value = "Add To Cart" onclick="myFunction()">Add To Cart</button>
+  <script>
+  function myFunction() {
+       alert("Added to the basket successfully!");
+  }
+  </script>
+</form>
+
+<p><a href="backmain">Back to Main Page</a></p>
+
+</body>
+</html>

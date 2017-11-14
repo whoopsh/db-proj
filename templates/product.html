@@ -1,0 +1,38 @@
+<html>
+  <style>
+    body{ 
+      font-size: 15pt;
+      font-family: arial;
+    }
+  </style>
+
+<body>
+
+  <h1>Category:
+  {{ctg_name}}
+  </h1>
+
+  {% if email == None %}
+  <p align="right"><a href="login"><b>Log In</b></a></p>
+  <p align="right"><a href="signup"><b>Sign Up</b></a></p>
+  {% endif %}
+
+  {% if email != None %}
+  <p align="right"><b>Hello,{{cname}}</b></p>
+  <p align="right"><a href="checkout">Check Out</a></p>
+  <p align="right"><a href="orderhistory">Order History</a></p>
+  <p align="right"><a href="logout">Log Out</p>
+  {% endif %}
+  
+  <div>
+    {% for n in data %}
+    <div><a href="pdetails?prod={{n.pid}}"><b>{{n.p_name}}</b></div>
+    <img src="{{n.url}}" width="256" height="256"><br><br>
+    {% endfor %}
+
+  </div>
+
+<p><a href="backmain">Back to Main Page</a></p>
+</body>
+
+</html>

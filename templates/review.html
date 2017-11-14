@@ -1,0 +1,21 @@
+<html>
+<style>
+    body{ 
+      font-size: 15pt;
+      font-family: arial;
+    }
+</style>
+
+<h1>Review Product</h1>
+<div><b>【Product name】 {{pname}}</b></div><br><br>
+<img src="{{url}}" width="256" height="256"><br>
+
+<form method = "POST" action = "/review?pid={{pid}}">
+  <b>Review content</b><br>
+  <input type="text" size=100 name="content" ><br><br>
+  <b>Rating:</b><br>
+  <input type="text" name="rating"><br><br>
+  <input type="submit" value="Submit">
+</form>
+
+</html>

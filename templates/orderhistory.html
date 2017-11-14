@@ -1,0 +1,45 @@
+<html>
+  <style>
+    body{ 
+      font-size: 15pt;
+      font-family: arial;
+    }
+  </style>
+
+<body>
+
+  <h1>Order History
+  </h1>
+
+  {% if email == None %}
+  <p align="right"><a href="login"><b>Log In</b></a></p>
+  <p align="right"><a href="signup"><b>Sign Up</b></a></p>
+  {% endif %}
+
+  {% if email != None %}
+  <p align="right"><b>Hello,{{cname}}</b></p>
+  <p align="right"><a href="backmain">Back to Main Page</a></p>
+  <p align="right"><a href="logout">Log Out</a></p>
+  {% endif %}
+  
+  <div>
+    {% for n in data %}
+    <div><b>【Product name】 {{n.pname}}</b></div><br><br>
+    <img src="{{n.url}}" width="256" height="256"><br>
+    <div><b>【Amount】</b> {{n.productamount}}</div><br>
+    <div><b>【Order Date】</b> {{n.orderdate}}</div><br>
+    <!-- <div><b>【Order Status】</b> {{n.orderstatus}}</div><br> -->
+    <div><a href="review?pid={{n.pid}}"><b>Write A Review</b></a></div>
+    <p>---------</p>
+    {% endfor %}
+
+  </div>
+
+<!-- 
+<form method="POST" action="/add">
+<p>Name of new computer scientist: <input type="text" name="name"> <input type="submit" value="Add"></p>
+
+</form>
+ -->
+</body>
+</html>

@@ -1,0 +1,29 @@
+<html>
+    <style>
+    body{ 
+      font-size: 15pt;
+      font-family: arial;
+    }
+    </style>
+      
+    <body>
+
+	<h1>Log In</h1>
+	{% if error %}
+    <p class=error><strong>Error:</strong> {{ error }}
+    <script type="text/javascript">
+    	alert("User not exist or password incorrect. Please enter again!")
+    </script>
+  	{% endif %}
+	<form method = "POST" action = "/login">
+	    <p>Enter User Email:</p>
+	    <p><input type = "text" name = "email"/></p>
+	    <p>Enter Password:</p>
+	    <p><input type = "text" name = "password" /></p>
+	    <p><input type = "submit" value = "submit" /></p>
+	 </form>
+	 
+   <p><a href="signup">Sign up</a></p>
+
+	</body>
+</html>

@@ -1,0 +1,69 @@
+<html>
+  <style>
+    body{ 
+      font-size: 15pt;
+      font-family: arial;
+    }
+  </style>
+
+<body>
+
+  <h1>Check Out
+  </h1>
+
+  {% if email == None %}
+  <p align="right"><a href="login"><b>Log In</b></a></p>
+  <p align="right"><a href="signup"><b>Sign Up</b></a></p>
+  {% endif %}
+
+  {% if email != None %}
+  <p align="right"><b>Hello,{{cname}}</b></p>
+  <p align="right"><a href="backmain">Back to Main Page</a></p>
+  <p align="right"><a href="logout">Log Out</a></p>
+  {% endif %}
+  
+  <div>
+    {% for n in data %}
+    <div><b>Product: {{n.pname}}</b></div>
+    <img src="{{n.url}}" width="256" height="256"><br><br>
+    <div><b>Qty: {{n.qty}}</b></div>
+    <form method="POST" action="/delete?pid={{n.pid}}">
+    <p><input type="submit" name = "delete" value="Delete" onclick="deleteMsg()"></p>
+    <script>
+    function deleteMsg() {
+         alert("Product deleted successfully!");
+    }
+    </script>
+
+
+    </form>
+    <p> ------ </p>
+    {% endfor %}
+
+  </div>
+
+<!-- <p><a href="another">Go to the other page</a></p> -->
+
+
+<form method="POST" action="/deleteall">
+<p><input type="submit" name = "deleteall" value="Delete All" onclick="deleteAllMsg()"></p>
+<script>
+    function deleteAllMsg() {
+         alert("Basket emptyed successfully!");
+    }
+</script>
+</form>
+
+
+<form method="POST" action="/order">
+<p><input type="submit" name = "checkout" value="Check Out" onclick="orderMsg()"></p>
+<script>
+    function deleteAllMsg() {
+         alert("Order placed successfully!");
+    }
+</script>
+</form>
+
+
+</body>
+</html>
